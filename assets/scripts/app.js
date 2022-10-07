@@ -1,6 +1,6 @@
-const ATTACK_VALUE = 15;
-const MONSTER_ATTACK_VALUE = 22;
-const STRONG_ATTACK_VALUE = 30;
+const ATTACK_VALUE = 10;
+const MONSTER_ATTACK_VALUE = 12;
+const STRONG_ATTACK_VALUE = 20;
 const HEAL_VALUE = 15;
 const enterValue = prompt(`Enter max life`, `100`);
 
@@ -24,7 +24,7 @@ function endRound() {
   const initialPlayerHealth = currentPlayerHealth;
   const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= playerDamage;
-  if (currentPlayerHealth <= 5 && hasBonusLife) {
+  if (currentPlayerHealth <= 0  && hasBonusLife) {
     hasBonusLife = false;
     removeBonusLife();
     currentPlayerHealth = initialPlayerHealth;
@@ -32,17 +32,18 @@ function endRound() {
     alert(
       'The Extra Life Was Your Saving Grace...Now Your Extra Life Was Useful.'
     );
+    reset()
   }
 
-  if (currentMonsterHealth <= 5 && currentPlayerHealth > 5) {
+  if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
     alert('You won!!');
-  } else if (currentPlayerHealth <= 5 && currentMonsterHealth > 5) {
+  } else if (currentPlayerHealth <= 0 && currentMonsterHealth >0 ) {
     alert('Monster Won!!');
-  } else if (currentMonsterHealth <= 5 && currentPlayerHealth <= 5) {
+  } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     alert('It is a draw...');
   }
 
-  if (currentPlayerHealth <= 5 || currentMonsterHealth <= 5) {
+  if (currentPlayerHealth <= 0 || currentMonsterHealth <= 0) {
     reset();
   }
 }
