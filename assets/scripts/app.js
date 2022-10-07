@@ -1,5 +1,5 @@
 const ATTACK_VALUE = 15;
-const MONSTER_ATTACK_VALUE = 12;
+const MONSTER_ATTACK_VALUE = 22;
 const STRONG_ATTACK_VALUE = 30;
 const HEAL_VALUE = 15;
 const enterValue = prompt(`Enter max life`, `100`);
@@ -24,7 +24,7 @@ function endRound() {
   const initialPlayerHealth = currentPlayerHealth;
   const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= playerDamage;
-  if (currentPlayerHealth <= 0 && hasBonusLife) {
+  if (currentPlayerHealth <= 5 && hasBonusLife) {
     hasBonusLife = false;
     removeBonusLife();
     currentPlayerHealth = initialPlayerHealth;
