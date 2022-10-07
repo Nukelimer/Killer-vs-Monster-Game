@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Prata&family=Raleway:wght@100;300;400&display=swap');
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Prata', serif;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  background: #817f7f;
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 1rem 0.5rem;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 90%;
+  height: 2em;
+  color: #ff0062;
+  border: 1px solid white;
+}
+
+progress[value]::-webkit-progress-bar,
+progress[value] {
+  background-color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  border-radius: 3px;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #f52773;
+  transition: all 0.2s ease-in;
+  border-radius: 0px;
+}
+
+progress[value]::-moz-progress-bar {
+  transition: all 0.2s ease-in;
+  border-radius: 0px;
+}
+
+button {
+  font: inherit;
+  background: grey;
+  border: 1px solid white;
+  color: #eee;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0.5rem;
+  width: 30%;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background: rgb(85, 37, 95);
+  color: #fdfefe;
+  border-color: white;
+}
+
+#health-levels,
+#controls {
+  margin: 2rem auto;
+  width: 30rem;
+  text-align: center;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  background: rgb(88, 80, 80);
+}
+
+#controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#bonus-life {
+  font-weight: bold;
+  color: white;
+  background: #e40259;
+  border: 1px solid #e40259;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 0.5rem;
+}
+
+#strong-attack-btn {
+  background: #c9014e;
+}
+
+#strong-attack-btn:active,
+#strong-attack-btn:focus {
+  background: rgb(184, 7, 7);
+  transition: all ease-in 2s;
+}
+
+#heal-btn {
+  background: green;
+}
+#heal-btn:focus,
+#heal-btn:active {
+  background: green;
+}
+#log-btn {
+  display: none;
+}
+#player-health {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 630px) {
+  body {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  #bonus-life {
+    border-radius: 25%;
+    padding-top: -2.1em;
+  }
+  #health-levels {
+    width: 90%;
+  }
+
+  #controls {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  button {
+    font-size: 0.81em;
+  }
+}
