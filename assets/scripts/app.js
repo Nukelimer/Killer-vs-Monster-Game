@@ -1,13 +1,18 @@
 const ATTACK_VALUE = 10;
-const MONSTER_ATTACK_VALUE = 12;
+const MONSTER_ATTACK_VALUE = 10;
 const STRONG_ATTACK_VALUE = 20;
 const HEAL_VALUE = 15;
-const enterValue = prompt(`Enter max life`, `100`);
 
-let chosenMaxLife = parseInt(enterValue);
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-  chosenMaxLife = 201;
+function enteredInputValue() {
+  let enteredValue = prompt(`Enter max life`, `100`);
+  enteredValue = parseInt(enteredValue);
+  if (isNaN(enteredValue) || enteredValue <= 0) {
+    throw `The Input Is Not A Number...Reload!!!`;
+  }
+  return (enteredValue = 101);
 }
+
+let chosenMaxLife = enteredInputValue();
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let hasBonusLife = true;
@@ -24,20 +29,20 @@ function endRound() {
   const initialPlayerHealth = currentPlayerHealth;
   const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= playerDamage;
-  if (currentPlayerHealth <= 0  && hasBonusLife) {
+  if (currentPlayerHealth <= 0 && hasBonusLife) {
     hasBonusLife = false;
     removeBonusLife();
-    currentPlayerHealth = initialPlayerHealth;
-    setPlayerHealth(initialPlayerHealth);
+    currentPlayerHealth = chosenMaxLife - 50;
     alert(
       'The Extra Life Was Your Saving Grace...Now Your Extra Life Was Useful.'
     );
-    reset()
+    setPlayerHealth(chosenMaxLife - 50);
+    // reset()
   }
 
   if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
     alert('You won!!');
-  } else if (currentPlayerHealth <= 0 && currentMonsterHealth >0 ) {
+  } else if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
     alert('Monster Won!!');
   } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     alert('It is a draw...');
